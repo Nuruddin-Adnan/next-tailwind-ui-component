@@ -20,17 +20,14 @@ export default async function UserPage() {
         { key: 'phone', label: 'Phone' },
     ];
     return (
-        <div>
+        <div className='container mx-auto'>
             <Table
                 columns={columns}
                 data={users}
                 uniqueKey="id"
-                customTableClass="border-0"
                 customTdClass="print:text-xs text-sm"
-                caption={<div className="text-center pt-6"><h2 className='text-2xl'>This is table heading</h2></div>}
                 search
                 print
-
             />
         </div>
     )
