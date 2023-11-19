@@ -52,8 +52,8 @@ export default function TablePage() {
                 columns={columns}
                 data={data}
                 uniqueKey="id"
-                customThClass="!py-0"
-                customTdClass="!py-0"
+                // customThClass="!py-0"
+                // customTdClass="!py-0"
                 onView={handleView}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
