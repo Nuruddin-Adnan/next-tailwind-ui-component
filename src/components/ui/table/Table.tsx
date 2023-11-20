@@ -22,6 +22,7 @@ export default function Table(
         responsive = false,
         search = false,
         print = false,
+        sort = false,
         sumFields = [],
     }:
         {
@@ -42,8 +43,8 @@ export default function Table(
             responsive?: boolean
             sumField?: string
             search?: boolean
-            itemsPerPage?: number
             print?: boolean
+            sort?: boolean,
             sumFields?: any[]
         }
 ) {
@@ -57,7 +58,7 @@ export default function Table(
 
     const responsiveClass = 'w-full overflow-auto';
     const tableClass = `min-w-full ${customTableClass}`;
-    const thClass = `py-1 px-2 border-b border-gray-300 text-left font-semibold print:pt-4 print:pb-2 cursor-pointer ${customThClass}`;
+    const thClass = `py-1 px-2 border-b border-gray-300 text-left font-semibold print:pt-4 print:pb-2 ${sort && 'cursor-pointer'}  ${customThClass}`;
     const tdClass = `py-1 px-2 border-b border-gray-300 ${customTdClass}`;
     const tfootClass = `py-1 px-2 font-semibold ${customTfClass}`;
     const stripedRowClass = 'bg-gray-100';
@@ -88,6 +89,11 @@ export default function Table(
     };
 
     const handleSort = (key: any) => {
+        if (!sort) {
+            // Sorting is not enabled, do nothing
+            return;
+        }
+
         setSortKey(key);
         setSortDirection((prevDirection) => (prevDirection === 'ascending' ? 'descending' : 'ascending'));
 
@@ -112,13 +118,33 @@ export default function Table(
         setSearchTerm(term);
 
         // Filter the data based on the search term
-        const filteredData = initialData.filter((row) =>
-            Object.values(row).some((value) =>
-                String(value).toLowerCase().includes(term)
-            )
-        );
+        const filteredData = initialData.filter((row) => {
+            return Object.keys(row).some((key) => {
+                const value = row[key];
+                if (typeof value === 'object' && value !== null) {
+                    // If the property is an object, recursively search its properties
+                    return searchNestedObject(value, term);
+                } else {
+                    // Otherwise, perform a regular case-insensitive search
+                    return String(value).toLowerCase().includes(term);
+                }
+            });
+        });
 
         setData(filteredData);
+    };
+
+    const searchNestedObject = (obj: any, term: string): boolean => {
+        return Object.keys(obj).some((key) => {
+            const value = obj[key];
+            if (typeof value === 'object' && value !== null) {
+                // If the property is an object, recursively search its properties
+                return searchNestedObject(value, term);
+            } else {
+                // Otherwise, perform a regular case-insensitive search
+                return String(value).toLowerCase().includes(term);
+            }
+        });
     };
 
     const calculateColumnSum = (key: any) => {
@@ -136,7 +162,7 @@ export default function Table(
         }, 0);
     };
 
-    const getSumResults = () => {
+    const getSumResults: any = () => {
         const sumResults: any = {};
         sumFields.forEach((field) => {
             sumResults[field] = calculateColumnSum(field);
@@ -144,11 +170,8 @@ export default function Table(
         return sumResults;
     };
 
-
-
     return (
         <div>
-
             {/* Search input */}
             <div className="flex items-center justify-between">
                 {
@@ -178,7 +201,7 @@ export default function Table(
                                 {columns.map((column) => (
                                     <th key={column.key} className={`${thClass} ${column.customClass || ''}`} onClick={() => handleSort(column.key)}>
                                         {column.label}
-                                        {sortKey === column.key && (
+                                        {sort && sortKey === column.key && (
                                             <span className="ml-2">
                                                 {sortDirection === 'ascending' ? '▲' : '▼'}
                                             </span>

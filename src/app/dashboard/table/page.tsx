@@ -59,7 +59,7 @@ export default function TablePage() {
                 // customTdClass="text-right"
                 tableHover
                 tableStriped
-                customTfClass="text-right"
+                customTfClass="text-right whitespace-nowrap"
                 onView={handleView}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
@@ -68,6 +68,7 @@ export default function TablePage() {
                 // responsive
                 caption={<div className="text-center print:pt-6"><h2 className='text-2xl'>This is table heading</h2></div>}
                 search
+                sort
                 print
             />
         </div>

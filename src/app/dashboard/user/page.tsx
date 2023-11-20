@@ -25,9 +25,12 @@ export default async function UserPage() {
                 columns={columns}
                 data={users}
                 uniqueKey="id"
-                customTdClass="print:text-xs text-sm"
+                customTdClass="print:text-sm !py-0"
                 search
                 print
+                // sort
+                tableHover
+                tableStriped
             />
         </div>
     )
