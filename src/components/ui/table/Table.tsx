@@ -23,6 +23,7 @@ export default function Table(
         search = false,
         print = false,
         sort = false,
+        serialized = false,
         sumFields = [],
     }:
         {
@@ -45,6 +46,7 @@ export default function Table(
             search?: boolean
             print?: boolean
             sort?: boolean,
+            serialized?: boolean,
             sumFields?: any[]
         }
 ) {
@@ -198,6 +200,9 @@ export default function Table(
                         <caption>{caption}</caption>
                         <thead>
                             <tr>
+                                {serialized && (
+                                    <th className={`${thClass} max-w-max text-center`}>Sl.</th>
+                                )}
                                 {columns.map((column) => (
                                     <th key={column.key} className={`${thClass} ${column.customClass || ''}`} onClick={() => handleSort(column.key)}>
                                         {column.label}
@@ -218,6 +223,11 @@ export default function Table(
                                 <tr key={uniqueKey ? row[uniqueKey] : index}
                                     className={`${index % 2 === 0 && tableStriped ? stripedRowClass : ''} ${tableHover && hoverClass}`}
                                 >
+                                    {serialized &&
+                                        <td className={`${tdClass} text-center`}>
+                                            {index + 1}
+                                        </td>
+                                    }
                                     {columns.map((column) => (
                                         <td
                                             key={column.key}

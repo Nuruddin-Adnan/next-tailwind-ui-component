@@ -70,6 +70,7 @@ export default function TablePage() {
                 search
                 sort
                 print
+                serialized
             />
         </div>
     );

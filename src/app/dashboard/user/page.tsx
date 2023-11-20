@@ -28,9 +28,6 @@ export default async function UserPage() {
                 customTdClass="print:text-sm !py-0"
                 search
                 print
-                // sort
-                tableHover
-                tableStriped
             />
         </div>
     )
