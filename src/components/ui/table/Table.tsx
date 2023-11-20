@@ -275,6 +275,9 @@ export default function Table(
                             sumFields &&
                             <tfoot>
                                 <tr>
+                                    {serialized && (
+                                        <td className={`${tfootClass} max-w-max text-center`}></td>
+                                    )}
                                     {columns.map((column) => (
                                         <td key={column.key} className={tfootClass}>
                                             {sumFields.includes(column.key) ? (

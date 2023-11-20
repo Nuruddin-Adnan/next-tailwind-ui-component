@@ -20,7 +20,7 @@ export default async function UserPage() {
         { key: 'phone', label: 'Phone' },
     ];
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-5'>
             <Table
                 columns={columns}
                 data={users}
