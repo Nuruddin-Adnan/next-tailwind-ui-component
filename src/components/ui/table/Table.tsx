@@ -233,9 +233,11 @@ export default function Table(
                                             key={column.key}
                                             className={`${tdClass} ${column.customDataClass ? column.customDataClass(row) : ''}`}
                                         >
-                                            {column.key.includes('.')
-                                                ? renderNestedCell(row, column.key)
-                                                : row[column.key]}
+                                            {column.render
+                                                ? column.render(row) // Call the custom rendering function if provided
+                                                : column.key.includes('.')
+                                                    ? renderNestedCell(row, column.key)
+                                                    : row[column.key]}
                                         </td>
                                     ))}
                                     {action && (

@@ -11,6 +11,17 @@ const columns = [
     { key: 'email', label: 'Email' },
     { key: 'address.dist', label: 'Dist' },
     { key: 'address.division', label: 'Division' },
+    {
+        key: 'customField',
+        label: 'Custom Field',
+        render: (row: any) => (
+            <div>
+                Custom Rendering:
+                <br />
+                {row.name} - {row.email}
+            </div>
+        ),
+    },
 ];
 
 const data = [
@@ -25,6 +36,7 @@ const data = [
     { id: 9, name: 'Test Name2', age: 29, email: 'test2@example.com', address: { dist: 'Comilla', division: 'Chittagram' }, salary: 8300 },
     { id: 10, name: 'Test Name3', age: 31, email: 'test3@example.com', address: { dist: 'Borguan', division: 'Barishal' }, salary: 8300 },
     { id: 11, name: 'Gimi Doe', age: 18, email: 'jane@example.com', salary: 8300 },
+
     // Add more data as needed
 ];
 
