@@ -58,7 +58,7 @@ export default function Table(
     const componentRef = useRef(null);
 
 
-    const responsiveClass = 'w-full overflow-auto';
+    const responsiveClass = 'w-full overflow-auto print:px-4 print:pb-4';
     const tableClass = `min-w-full ${customTableClass}`;
     const thClass = `py-1 px-2 border-b border-gray-300 text-left font-semibold print:pt-4 print:pb-2 ${sort && 'cursor-pointer'}  ${customThClass}`;
     const tdClass = `py-1 px-2 border-b border-gray-300 ${customTdClass}`;
@@ -175,10 +175,10 @@ export default function Table(
     return (
         <div>
             {/* Search input */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-4">
                 {
                     search ?
-                        <div className="mb-4">
+                        <div>
                             <input
                                 type="text"
                                 placeholder="Search..."
@@ -195,7 +195,7 @@ export default function Table(
             </div>
             {/* Table  */}
             <div ref={componentRef}>
-                <div className={`${responsive ? responsiveClass : ''} print:px-4 print:pb-4`}  >
+                <div className={`${responsive ? responsiveClass : ''}`}  >
                     <table className={tableClass}>
                         <caption>{caption}</caption>
                         <thead>
@@ -275,7 +275,7 @@ export default function Table(
                         </tbody>
                         {
                             sumFields &&
-                            <tfoot>
+                            <tfoot className='table-row-group'>
                                 <tr>
                                     {serialized && (
                                         <td className={`${tfootClass} max-w-max text-center`}></td>
@@ -289,6 +289,8 @@ export default function Table(
                                             )}
                                         </td>
                                     ))}
+
+                                    {action && <td className={`${tfootClass} max-w-max text-center`}></td>}
                                 </tr>
                             </tfoot>
                         }

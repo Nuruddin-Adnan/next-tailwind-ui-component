@@ -59,7 +59,7 @@ export default function TablePage() {
     };
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-5'>
 
             {/* Table component */}
             <Table
