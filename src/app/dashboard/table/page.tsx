@@ -18,7 +18,9 @@ const columns = [
             <div>
                 Custom Rendering:
                 <br />
-                {row.name} - {row.email}
+                {console.log(row)}
+
+                {row?.name} - {row.test?.nested}
             </div>
         ),
     },
