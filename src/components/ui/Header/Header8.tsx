@@ -13,7 +13,7 @@ const navigation = [
     { name: 'Modal', href: '/dashboard/modal' },
     { name: 'User', href: '/dashboard/user' },
     { name: 'Navbar', href: '/dashboard/navbar' },
-    { name: 'Sidebar', href: '/dashboard/sidebar' },
+    { name: 'Sidebar', href: '/dashboard2/sidebar' },
 ]
 
 const products = [
@@ -33,7 +33,7 @@ export default function Header8() {
         <Disclosure as="nav" className="bg-white shadow">
             {({ open }) => (
                 <>
-                    <div className="mx-auto container  px-4 py-2 lg:py-0">
+                    <div className="px-4 py-2 lg:py-0">
                         <div className="relative flex items-center justify-between">
                             <div className="flex items-center lg:hidden">
                                 {/* Mobile menu button*/}
