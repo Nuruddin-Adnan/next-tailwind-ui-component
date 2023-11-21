@@ -1,15 +1,10 @@
 import React, { ReactNode } from "react";
-import Link from 'next/link'
-import Header from "@/components/ui/Header/Header";
+import Header8 from "@/components/ui/Header/Header8";
 
 export default function DashbaordLayout({ children }: { children: ReactNode }) {
     return (
         <>
-            {/* <div>DashbaordLayout</div>
-            <Link href='/'>Home</Link>
-            <Link href='/dashboard/navbar'>Navbar</Link>
-            <Link href='/dashboard/modal'>Modal</Link> */}
-            <Header />
+            <Header8 />
             {children}
         </>
     )
