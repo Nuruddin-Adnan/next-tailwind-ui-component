@@ -41,7 +41,7 @@ export default function Sidebar() {
                     {/* Sidebar links */}
                     <div className="space-y-1 mt-4">
                         {
-                            navigation.map((item: any, index: number) => <Link key={index} href={item.href} className={`${pathname === item.href ? 'bg-gray-700 text-cyan-400' : ''} flex items-center py-2 px-4 text-white hover:bg-gray-700`}>
+                            navigation.map((item: any, index: number) => <Link key={index} href={item.href} className={pathname === item.href ? 'bg-gray-700 text-cyan-400 flex items-center py-2 px-4' : 'flex items-center py-2 px-4 text-white hover:bg-gray-700'}>
                                 <item.icon className="h-6 w-6 mr-2 lg:mr-3" />
                                 {item.name}
                             </Link>)
