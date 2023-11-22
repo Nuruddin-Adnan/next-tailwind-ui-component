@@ -28,18 +28,18 @@ function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Header8() {
+export default function Header9() {
     const pathname = usePathname()
 
     return (
-        <Disclosure as="nav" className="bg-cyan-600 shadow">
+        <Disclosure as="nav" className="bg-white shadow">
             {({ open }) => (
                 <>
                     <div className="px-4 py-2 lg:py-0">
                         <div className="relative flex items-center justify-between">
                             <div className="flex items-center lg:hidden">
                                 {/* Mobile menu button*/}
-                                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-white  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-whit focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
                                     <span className="absolute -inset-0.5" />
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
@@ -64,8 +64,8 @@ export default function Header8() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    pathname === item.href ? 'text-white  border-b-2 border-white' : 'text-gray-100 hover:text-white hover:border-b-2 border-gray-300',
-                                                    'px-1 py-4 text-base'
+                                                    pathname === item.href ? 'text-gray-900  border-b-2 border-purple-500' : 'text-gray-500 hover:text-gray-900 hover:border-b-2 border-gray-300',
+                                                    'px-1 py-4 text-base font-medium'
                                                 )}
                                             >
                                                 {item.name}
@@ -73,8 +73,8 @@ export default function Header8() {
                                         ))}
                                         <Menu as="div" className="relative group">
                                             <div>
-                                                <Menu.Button className="text-gray-100  group-hover:text-white group-hover:border-b-2 border-gray-100 flex items-center
-                                                    px-1 py-4 text-base">
+                                                <Menu.Button className="text-gray-500  group-hover:text-gray-900 group-hover:border-b-2 border-gray-300 flex items-center
+                                                    px-1 py-4 text-base font-medium">
                                                     Product
                                                     <ChevronDownIcon className="h-5 w-5 flex-none " aria-hidden="true" />
                                                 </Menu.Button>
@@ -113,7 +113,7 @@ export default function Header8() {
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                                 <button
                                     type="button"
-                                    className="relative rounded-full  p-1 text-white "
+                                    className="relative rounded-full  p-1 text-gray-900 "
                                 >
                                     <span className="absolute -inset-1.5" />
                                     <span className="sr-only">View notifications</span>
@@ -192,16 +192,16 @@ export default function Header8() {
                                     as="a"
                                     href={item.href}
                                     className={classNames(
-                                        pathname === item.href ? 'bg-gray-100 text-gray-900' : 'text-gray-100 hover:bg-gray-100 hover:text-gray-900',
-                                        'block rounded-md px-3 py-2 text-base'
+                                        pathname === item.href ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
+                                        'block rounded-md px-3 py-2 text-base font-medium'
                                     )}
                                 >
                                     {item.name}
                                 </Disclosure.Button>
                             ))}
                             <>
-                                <Disclosure.Button className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
-                                        flex items-center justify-between w-full rounded-md px-3 py-2 text-base ">
+                                <Disclosure.Button className="text-gray-700 hover:bg-gray-100 hover:text-gray-900
+                                        flex items-center justify-between w-full rounded-md px-3 py-2 text-base font-medium">
                                     Product
                                     <ChevronDownIcon
                                         className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
@@ -214,8 +214,8 @@ export default function Header8() {
                                             key={item.name}
                                             as="a"
                                             href={item.href}
-                                            className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
-                                                    flex items-center justify-between w-full rounded-md px-3 py-2 text-sm"
+                                            className="text-gray-700 hover:bg-gray-100 hover:text-gray-900
+                                                    flex items-center justify-between w-full rounded-md px-3 py-2 text-sm font-medium"
                                         >
                                             {item.name}
                                         </Disclosure.Button>
