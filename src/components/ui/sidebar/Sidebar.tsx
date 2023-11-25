@@ -18,7 +18,7 @@ const navigation = [
     { name: 'Home', href: '/dashboard2/sidebar', icon: HomeIcon },
     { name: 'Documents', href: '#', icon: DocumentTextIcon },
     { name: 'Analytics', href: '#', icon: ChartBarIcon },
-    { name: 'Users', href: '#', icon: UsersIcon },
+    { name: 'Users', href: '/dashboard2/users', icon: UsersIcon },
     { name: 'Inbox', href: '#', icon: InboxIcon },
     { name: 'Archive', href: '#', icon: ArchiveBoxIcon },
 ]
@@ -66,14 +66,13 @@ export default function Sidebar() {
                                     </Disclosure.Button>
                                     <Disclosure.Panel className="space-y-0 px-4">
                                         {navigation.map((item) => (
-                                            <Disclosure.Button
+                                            <Link
                                                 key={item.name}
-                                                as="a"
                                                 href={item.href}
-                                                className="block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700"
+                                                className={pathname === item.href ? 'block pl-9 py-0.5 text-sm  leading-7 text-cyan-600 bg-gray-700' : 'block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700' }
                                             >
                                                 {item.name}
-                                            </Disclosure.Button>
+                                            </Link>
                                         ))}
                                     </Disclosure.Panel>
                                 </>
@@ -97,14 +96,13 @@ export default function Sidebar() {
                                     </Disclosure.Button>
                                     <Disclosure.Panel className="space-y-0 px-4">
                                         {navigation.map((item) => (
-                                            <Disclosure.Button
+                                            <Link
                                                 key={item.name}
-                                                as="a"
                                                 href={item.href}
-                                                className="block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700"
+                                                className={pathname === item.href ? 'block pl-9 py-0.5 text-sm  leading-7 text-cyan-600 bg-gray-700' : 'block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700' }
                                             >
                                                 {item.name}
-                                            </Disclosure.Button>
+                                            </Link>
                                         ))}
                                     </Disclosure.Panel>
                                 </>
@@ -119,7 +117,7 @@ export default function Sidebar() {
                                             <div>
                                                 <DocumentTextIcon className="h-6 w-6 mr-2 lg:mr-3" />
                                             </div>
-                                            <span className='text-start'>Dropdown Menu 3 hello java asdfsd</span>
+                                            <span className='text-start'>Dropdown Menu 3 with more text </span>
                                         </div>
                                         <ChevronRightIcon
                                             className={classNames(open ? 'rotate-90' : '', 'h-5 w-5 flex-none mt-1')}
@@ -128,14 +126,13 @@ export default function Sidebar() {
                                     </Disclosure.Button>
                                     <Disclosure.Panel className="space-y-0 px-4">
                                         {navigation.map((item) => (
-                                            <Disclosure.Button
+                                            <Link
                                                 key={item.name}
-                                                as="a"
                                                 href={item.href}
-                                                className="block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700"
+                                                className={pathname === item.href ? 'block pl-9 py-0.5 text-sm  leading-7 text-cyan-600 bg-gray-700' : 'block pl-9 py-0.5 text-sm  leading-7 text-gray-200 hover:bg-gray-700' }
                                             >
                                                 {item.name}
-                                            </Disclosure.Button>
+                                            </Link>
                                         ))}
                                     </Disclosure.Panel>
                                 </>

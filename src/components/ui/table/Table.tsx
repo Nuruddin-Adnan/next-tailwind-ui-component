@@ -194,7 +194,7 @@ export default function Table(
                 }
             </div>
             {/* Table  */}
-            <div ref={componentRef}>
+            <div className='print:p-5' ref={componentRef}>
                 <div className={`${responsive ? responsiveClass : ''}`}  >
                     <table className={tableClass}>
                         <caption>{caption}</caption>

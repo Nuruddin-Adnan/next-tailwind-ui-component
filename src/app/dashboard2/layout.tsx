@@ -8,7 +8,7 @@ export default function SidebarLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className='flex w-full overflow-hidden'>
+        <div className='flex w-full bg-gray-200 overflow-hidden'>
             <div>
                 <Sidebar />
             </div>
