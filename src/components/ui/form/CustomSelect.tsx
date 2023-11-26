@@ -1,9 +1,27 @@
-import { useState } from "react";
+import cn from "@/lib/cn";
 
-
-
-export default function CustomSelect(props: any) {
-    const [data] = useState(props?.options);
+export default function CustomSelect(
+    {
+        options,
+        size,
+        inline,
+        label,
+        labelClassName,
+        name,
+        onSelectChange,
+        defaultValue,
+        title = '-- select one --'
+    }: {
+        options: { title: string, value: any }[],
+        size?: string,
+        inline?: boolean,
+        label?: React.ReactNode | string,
+        labelClassName?: string,
+        name?: string,
+        onSelectChange?: any,
+        defaultValue?: string | number,
+        title?: string
+    }) {
 
     const selectStyle = {
         padding: '6px 8px',
@@ -16,37 +34,41 @@ export default function CustomSelect(props: any) {
         width: '100%'
     };
 
-    if (props?.size) {
-        if (props?.size === 'xl') {
+    if (size) {
+        if (size === 'xl') {
             selectStyle.padding = '12px 16px'
             selectStyle.fontSize = '1.25rem'
         }
-        if (props?.size === 'lg') {
+        if (size === 'lg') {
             selectStyle.padding = '8px 16px'
-            selectStyle.fontSize = '1.25rem'
+            selectStyle.fontSize = '1.125rem'
         }
-        if (props?.size === 'sm') {
+        if (size === 'sm') {
             selectStyle.padding = '4px 8px'
         }
     }
 
-    let options = data.map((item: any, index: number) => (
-        <option key={index} value={item.value}>{item.title}</option>
-    ));
 
     return (
-        <div className={props?.inline && "sm:flex items-center whitespace-nowrap gap-4"}>
-            {props?.label && <label className={`"block text-sm font-medium text-gray-900" ${props?.labelClassName}`}>
-                {props?.label}
+        <div className={inline ? "sm:flex items-center whitespace-nowrap gap-4" : ''}>
+            {label && <label className={cn(
+                "block text-sm font-medium text-gray-900 mb-0.5",
+                labelClassName
+            )}>
+                {label}
             </label>}
             <select
-                name={props?.name}
-                onChange={(event) => props?.onSelectChange(event)}
+                name={name}
+                onChange={(event) => onSelectChange(event)}
                 style={selectStyle}
-                defaultValue={props?.defaultValue}
+                defaultValue={defaultValue}
             >
-                <option value="" disabled>{props.title}</option>
-                {options}
+                <option value="" disabled>{title}</option>
+                {
+                    options.map((item: any, index: number) => (
+                        <option key={index} value={item.value}>{item.title}</option>
+                    ))
+                }
             </select>
         </div>
     );

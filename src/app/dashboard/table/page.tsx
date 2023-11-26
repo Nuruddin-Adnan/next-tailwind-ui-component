@@ -79,7 +79,7 @@ export default function TablePage() {
                 onDelete={handleDelete}
                 action={true}
                 sumFields={['age', 'salary', 'test.nested']}
-                // responsive
+                responsive
                 caption={<div className="text-center print:pt-6"><h2 className='text-2xl'>This is table heading</h2></div>}
                 search
                 sort

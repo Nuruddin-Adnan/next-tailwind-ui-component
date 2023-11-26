@@ -8,13 +8,15 @@ import React from 'react'
 export default function ButtonPage() {
     return (
         <div>
-            <div className='container mx-auto p-5 bg-white'>
+            <div className='container mx-auto p-5'>
                 <div className="flex gap-5 flex-wrap">
                     <span>
                         <Button size='sm'> <UsersIcon className='w-4 h-4' /></Button>
                     </span>
                     <span><Button type='submit'>Regular button</Button></span>
+                    <span><Button type='submit' loading>Regular button loading</Button></span>
                     <span><Button size='lg' icon={<UsersIcon />}>Lg button</Button></span>
+                    <span><Button variant='light' icon={<UsersIcon />}>Lg button</Button></span>
                     <span><Button variant='primary' loading onClick={() => console.log('click')}>primary button</Button></span>
                     <span><Button variant='success' size='' icon={<UsersIcon />}>success button</Button></span>
                     <span><Button variant='info' size='lg'>info button</Button></span>
@@ -31,9 +33,7 @@ export default function ButtonPage() {
                     <span><Button variant='outline-error' size='sm' loading>Outline error button</Button></span>
                     <span><Button variant='outline-error' size='sm'>Outline error button</Button></span>
                     <span><Button variant='outline-dark' onClick={() => console.log('Button clicked')}>Outline Dark button</Button></span>
-                    <span>
-                        <FormInput placeholder='Enter your name' />
-                    </span>
+
                 </div>
             </div>
         </div>

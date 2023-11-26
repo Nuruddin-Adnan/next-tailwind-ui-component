@@ -1,27 +1,25 @@
 import cn from "@/lib/cn";
 
-export default function FormInput(
+export default function Textarea(
     {
-        type = 'text',
+        rows = 3,
         size,
         name,
         placeholder,
         label,
         inline,
         defaultValue,
-        autocomplete,
         className,
         onChange,
         labelClassName,
     }: {
-        type?: string,
+        rows?: number,
         size?: string,
         name?: string,
         placeholder?: string,
         label?: React.ReactNode | string,
         inline?: boolean,
         defaultValue?: string | number,
-        autocomplete?: string,
         className?: string,
         onChange?: any,
         labelClassName?: string,
@@ -65,13 +63,12 @@ export default function FormInput(
             )}>
                 {label}
             </label>}
-            <input
-                type={type}
+            <textarea
+                rows={rows}
                 defaultValue={defaultValue}
                 name={name}
                 onChange={handleChange}
                 placeholder={placeholder}
-                autoComplete={autocomplete ? autocomplete : "off"}
                 style={inputStyle}
                 className={className}
             />

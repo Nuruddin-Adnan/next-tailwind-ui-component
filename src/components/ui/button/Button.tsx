@@ -1,5 +1,3 @@
-'use client'
-
 import cn from "@/lib/cn";
 
 export default function Button(props: any) {
@@ -8,11 +6,12 @@ export default function Button(props: any) {
   return (
     <button
       className={cn(
-        "bg-gradient-to-b from-[#f7f8fa] to-[#e7e9ec] text-gray-900 inline-flex items-center border border-gray-400 shadow-sm hover:opacity-80 py-1.5 px-3 rounded transition-all",
+        "bg-gradient-to-b from-[#f7f8fa] to-[#e7e9ec] text-gray-900 font-medium inline-flex items-center border border-gray-400 shadow-sm hover:opacity-80 py-1.5 px-3 rounded transition-all",
         className,
         {
           "text-sm py-1 px-2 ": size === 'sm',
           "text-lg py-2 px-4": size === 'lg',
+          "bg-white border-gray-300 text-gray-900 from-transparent to-transparent": variant === 'light',
           "bg-blue-500 border-blue-400 text-white from-transparent to-transparent": variant === 'primary',
           "bg-green-500 border-green-400 text-white from-transparent to-transparent": variant === 'success',
           "bg-cyan-500 border-cyan-400 text-white from-transparent to-transparent": variant === 'info',
@@ -56,8 +55,7 @@ export default function Button(props: any) {
           "me-1 w-4 h-4": size === 'sm',
           "w-6 h-6": size === 'lg',
         }
-      )
-      }>
+      )}>
         {icon}
       </span>}
       {loading ? 'Loading...' : children}
