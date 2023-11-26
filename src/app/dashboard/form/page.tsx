@@ -41,8 +41,6 @@ export default function FormPage() {
                     <FormInput inline label='First Name : ' name='firstName' placeholder='Enter your name' />
                     <CustomSelect inline label='Name fragment : ' options={optionsData} title='Pease select one' onSelectChange={(e: any) => e} name='age' />
                 </form>
-
-
                 <Form />
             </div>
         </div>

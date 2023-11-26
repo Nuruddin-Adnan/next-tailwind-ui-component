@@ -16,11 +16,13 @@ const navigation = [
     { name: 'Navbar', href: '/dashboard/navbar' },
     { name: 'Sidebar', href: '/dashboard2/sidebar' },
     { name: 'Sidebar Light', href: '/dashboard3/sidebar-light' },
-    { name: 'products', submenu: [
-        { name: 'Table one', href: '#' },
-        { name: 'User Table', href: '#' },
-        { name: 'Third Product', href: '#' },
-    ] },
+    {
+        name: 'Components', submenu: [
+            { name: 'Button', href: '/dashboard/button' },
+            { name: 'User Table', href: '#' },
+            { name: 'Third Product', href: '#' },
+        ]
+    },
 ]
 
 function classNames(...classes: any) {
@@ -59,54 +61,54 @@ export default function Header8() {
                                 <div className="hidden lg:ml-6 lg:block">
                                     <div className="flex space-x-6">
                                         {navigation.map((item) => (
-                                            item.submenu ?  <Menu key={item.name} as="div" className="relative group">
-                                            <div>
-                                                <Menu.Button className="text-gray-100  group-hover:text-white group-hover:border-b-2 border-gray-100 flex items-center
+                                            item.submenu ? <Menu key={item.name} as="div" className="relative group">
+                                                <div>
+                                                    <Menu.Button className="text-gray-100  group-hover:text-white group-hover:border-b-2 border-gray-100 flex items-center
                                                     px-1 py-4 text-base">
+                                                        {item.name}
+                                                        <ChevronDownIcon className="h-5 w-5 flex-none " aria-hidden="true" />
+                                                    </Menu.Button>
+                                                </div>
+                                                <Transition
+                                                    as={Fragment}
+                                                    enter="transition ease-out duration-100"
+                                                    enterFrom="transform opacity-0 scale-95"
+                                                    enterTo="transform opacity-100 scale-100"
+                                                    leave="transition ease-in duration-75"
+                                                    leaveFrom="transform opacity-100 scale-100"
+                                                    leaveTo="transform opacity-0 scale-95"
+                                                >
+                                                    <Menu.Items className="absolute left-0 z-10 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                        {item.submenu.map((item: any) => (
+                                                            <Menu.Item key={item.name}>
+                                                                {({ active }) => (
+                                                                    <a
+                                                                        href={item.href}
+                                                                        className={classNames(
+                                                                            active ? 'bg-gray-100' : '',
+                                                                            'block px-4 py-2 text-sm text-gray-700'
+                                                                        )}
+                                                                    >
+                                                                        {item.name}
+                                                                    </a>
+                                                                )}
+                                                            </Menu.Item>
+                                                        ))}
+                                                    </Menu.Items>
+                                                </Transition>
+                                            </Menu> :
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className={classNames(
+                                                        pathname === item.href ? 'text-white  border-b-2 border-white' : 'text-gray-100 hover:text-white hover:border-b-2 border-gray-300',
+                                                        'px-1 py-4 text-base'
+                                                    )}
+                                                >
                                                     {item.name}
-                                                    <ChevronDownIcon className="h-5 w-5 flex-none " aria-hidden="true" />
-                                                </Menu.Button>
-                                            </div>
-                                            <Transition
-                                                as={Fragment}
-                                                enter="transition ease-out duration-100"
-                                                enterFrom="transform opacity-0 scale-95"
-                                                enterTo="transform opacity-100 scale-100"
-                                                leave="transition ease-in duration-75"
-                                                leaveFrom="transform opacity-100 scale-100"
-                                                leaveTo="transform opacity-0 scale-95"
-                                            >
-                                                <Menu.Items className="absolute left-0 z-10 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                    {item.submenu.map((item: any) => (
-                                                        <Menu.Item key={item.name}>
-                                                            {({ active }) => (
-                                                                <a
-                                                                    href={item.href}
-                                                                    className={classNames(
-                                                                        active ? 'bg-gray-100' : '',
-                                                                        'block px-4 py-2 text-sm text-gray-700'
-                                                                    )}
-                                                                >
-                                                                    {item.name}
-                                                                </a>
-                                                            )}
-                                                        </Menu.Item>
-                                                    ))}
-                                                </Menu.Items>
-                                            </Transition>
-                                        </Menu> : 
-                                            <Link
-                                                key={item.name}
-                                                href={item.href}
-                                                className={classNames(
-                                                    pathname === item.href ? 'text-white  border-b-2 border-white' : 'text-gray-100 hover:text-white hover:border-b-2 border-gray-300',
-                                                    'px-1 py-4 text-base'
-                                                )}
-                                            >
-                                                {item.name}
-                                            </Link>
+                                                </Link>
                                         ))}
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -187,44 +189,44 @@ export default function Header8() {
                     <Disclosure.Panel className="lg:hidden">
                         <div className="space-y-1 px-2 pb-3 pt-2">
                             {navigation.map((item) => (
-                                item.submenu ?  
-                               <span key={item.name}>
-                               <Disclosure.Button className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
+                                item.submenu ?
+                                    <span key={item.name}>
+                                        <Disclosure.Button className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
                                        flex items-center justify-between w-full rounded-md px-3 py-2 text-base ">
-                                   {item.name}
-                                   <ChevronDownIcon
-                                       className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
-                                       aria-hidden="true"
-                                   />
-                               </Disclosure.Button>
-                               <Disclosure.Panel className="ml-3">
-                                   {item.submenu.map((item) => (
-                                       <Disclosure.Button
-                                           key={item.name}
-                                           as="a"
-                                           href={item.href}
-                                           className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
+                                            {item.name}
+                                            <ChevronDownIcon
+                                                className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                aria-hidden="true"
+                                            />
+                                        </Disclosure.Button>
+                                        <Disclosure.Panel className="ml-3">
+                                            {item.submenu.map((item) => (
+                                                <Disclosure.Button
+                                                    key={item.name}
+                                                    as="a"
+                                                    href={item.href}
+                                                    className="text-gray-100 hover:bg-gray-100 hover:text-gray-900
                                                    flex items-center justify-between w-full rounded-md px-3 py-2 text-sm"
-                                       >
-                                           {item.name}
-                                       </Disclosure.Button>
-                                   ))}
-                               </Disclosure.Panel>
-                           </span>: 
-                           <Disclosure.Button
-                           key={item.name}
-                           as="a"
-                           href={item.href}
-                           className={classNames(
-                               pathname === item.href ? 'bg-gray-100 text-gray-900' : 'text-gray-100 hover:bg-gray-100 hover:text-gray-900',
-                               'block rounded-md px-3 py-2 text-base'
-                           )}
-                       >
-                           {item.name}
-                       </Disclosure.Button>
-                                
+                                                >
+                                                    {item.name}
+                                                </Disclosure.Button>
+                                            ))}
+                                        </Disclosure.Panel>
+                                    </span> :
+                                    <Disclosure.Button
+                                        key={item.name}
+                                        as="a"
+                                        href={item.href}
+                                        className={classNames(
+                                            pathname === item.href ? 'bg-gray-100 text-gray-900' : 'text-gray-100 hover:bg-gray-100 hover:text-gray-900',
+                                            'block rounded-md px-3 py-2 text-base'
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Disclosure.Button>
+
                             ))}
-                         
+
                         </div>
                     </Disclosure.Panel>
                 </>
