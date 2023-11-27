@@ -1,7 +1,7 @@
 'use client'
 
 /* eslint-disable @next/next/no-img-element */
-import { Fragment } from 'react'
+import { ElementType, Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -19,7 +19,7 @@ const navigation = [
     {
         name: 'Components', submenu: [
             { name: 'Button', href: '/dashboard/button' },
-            { name: 'User Table', href: '#' },
+            { name: 'Accordion', href: '/dashboard/accordion' },
             { name: 'Third Product', href: '#' },
         ]
     },
@@ -82,15 +82,15 @@ export default function Header8() {
                                                         {item.submenu.map((item: any) => (
                                                             <Menu.Item key={item.name}>
                                                                 {({ active }) => (
-                                                                    <a
+                                                                    <Link
                                                                         href={item.href}
                                                                         className={classNames(
-                                                                            active ? 'bg-gray-100' : '',
+                                                                            pathname === item.href ? 'bg-gray-100 text-gray-900' : '',
                                                                             'block px-4 py-2 text-sm text-gray-700'
                                                                         )}
                                                                     >
                                                                         {item.name}
-                                                                    </a>
+                                                                    </Link>
                                                                 )}
                                                             </Menu.Item>
                                                         ))}
