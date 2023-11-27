@@ -16,7 +16,7 @@ export default function ButtonPage() {
                     <span><Button type='submit'>Regular button</Button></span>
                     <span><Button type='submit' loading>Regular button loading</Button></span>
                     <span><Button size='lg' icon={<UsersIcon />}>Lg button</Button></span>
-                    <span><Button variant='light' icon={<UsersIcon />}>Lg button</Button></span>
+                    <span><Button variant='light' icon={<UsersIcon />}>Light button</Button></span>
                     <span><Button variant='primary' loading onClick={() => console.log('click')}>primary button</Button></span>
                     <span><Button variant='success' size='' icon={<UsersIcon />}>success button</Button></span>
                     <span><Button variant='info' size='lg'>info button</Button></span>
