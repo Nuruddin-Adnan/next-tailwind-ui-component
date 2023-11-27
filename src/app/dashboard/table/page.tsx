@@ -47,17 +47,17 @@ export default function TablePage() {
 
     const handleView = (rowKey: any) => {
         // Implement view logic here
-        console.log('View Key:', rowKey);
+        alert(`View Key: ${rowKey}`);
     };
 
     const handleEdit = (rowKey: any) => {
         // Implement edit logic here
-        console.log('Edit Key:', rowKey);
+        alert(`Edit Key: ${rowKey}`);
     };
 
     const handleDelete = (rowKey: any) => {
         // Implement delete logic here
-        console.log('Delete Key:', rowKey);
+        alert(`Delete Key: ${rowKey}`);
     };
 
     return (

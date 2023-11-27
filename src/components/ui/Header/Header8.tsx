@@ -20,7 +20,7 @@ const navigation = [
         name: 'Components', submenu: [
             { name: 'Button', href: '/dashboard/button' },
             { name: 'Accordion', href: '/dashboard/accordion' },
-            { name: 'Third Product', href: '#' },
+            { name: 'Offcanvas', href: '/dashboard/offcanvas' },
         ]
     },
 ]
