@@ -1,7 +1,6 @@
 'use client'
 
 import Button from '@/components/ui/button/Button'
-import FormInput from '@/components/ui/form/FormInput'
 import { UsersIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 
@@ -18,11 +17,13 @@ export default function ButtonPage() {
                     <span><Button size='lg' icon={<UsersIcon />}>Lg button</Button></span>
                     <span><Button variant='light' icon={<UsersIcon />}>Light button</Button></span>
                     <span><Button variant='primary' loading onClick={() => console.log('click')}>primary button</Button></span>
+                    <span><Button variant='primary'>primary button</Button></span>
                     <span><Button variant='success' size='' icon={<UsersIcon />}>success button</Button></span>
                     <span><Button variant='info' size='lg'>info button</Button></span>
+                    <span><Button variant='warning'>warning button</Button></span>
                     <span><Button variant='warning' loading>warning button</Button></span>
                     <span><Button variant='error' size='sm' loading>error button</Button></span>
-                    <span><Button variant='error' size='sm'>error button</Button></span>
+                    <span><Button variant='error'>error button</Button></span>
                     <span><Button variant='dark'>Dark button</Button></span>
                     <span><Button variant='dark' size='lg'>Dark button</Button></span>
                     <span><Button variant='outline-primary'>Outline primary button</Button></span>

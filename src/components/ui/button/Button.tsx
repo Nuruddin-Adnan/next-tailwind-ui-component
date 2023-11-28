@@ -6,24 +6,26 @@ export default function Button(props: any) {
   return (
     <button
       className={cn(
-        "bg-gradient-to-b from-[#f7f8fa] to-[#e7e9ec] text-gray-900 font-medium inline-flex items-center border border-gray-400 shadow-sm hover:opacity-80 py-1.5 px-3 rounded transition-all",
+        "bg-gradient-to-b from-[#f7f8fa] to-[#e7e9ec] text-gray-900  inline-flex items-center border border-gray-400 focus:ring-2 shadow-sm py-1.5 px-3 rounded transition-all",
         className,
         {
           "text-sm py-1 px-2 ": size === 'sm',
           "text-lg py-2 px-4": size === 'lg',
           "bg-white border-gray-300 text-gray-900 from-transparent to-transparent": variant === 'light',
-          "bg-blue-500 border-blue-400 text-white from-transparent to-transparent": variant === 'primary',
-          "bg-green-500 border-green-400 text-white from-transparent to-transparent": variant === 'success',
-          "bg-cyan-500 border-cyan-400 text-white from-transparent to-transparent": variant === 'info',
-          "bg-yellow-500 border-yellow-400 text-white from-transparent to-transparent": variant === 'warning',
-          "bg-red-500 border-red-400 text-white from-transparent to-transparent": variant === 'error',
-          "bg-gray-900 border-gray-800 text-white from-transparent to-transparent": variant === 'dark',
-          "bg-white border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-primary',
-          "bg-white border-green-500 text-green-500 hover:bg-green-500 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-success',
-          "bg-white border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-info',
-          "bg-white border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-warning',
-          "bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-error',
-          "bg-white border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white hover:opacity-100 from-transparent to-transparent": variant === 'outline-dark',
+          "bg-gradient-to-b from-[#42A1EC] to-[#0070C9] hover:from-[#51A9EE] hover:to-[#147BCD] text-white border border-[#0077CC] ": variant === 'primary',
+          "bg-gradient-to-b from-[#68D60F] to-[#4DA208] hover:from-[#6fe70e] hover:to-[#54b108] text-white border border-[#66D00F] ": variant === 'success',
+          "bg-gradient-to-b from-cyan-400 to-cyan-600 hover:from-cyan-300 hover:to-cyan-500 text-white border border-cyan-500 ": variant === 'info',
+          "bg-gradient-to-b from-[#fda82c] to-[#db5d00] hover:from-[#fdb92b] hover:to-[#db7d00] text-white border border-[#e89c2b] ": variant === 'warning',
+          "bg-gradient-to-b from-red-500 to-red-700 hover:from-red-400 hover:to-red-600 text-white border border-red-500 ": variant === 'error',
+          "bg-gradient-to-b from-gray-600 to-gray-950 hover:from-gray-500 hover:to-gray-800 text-white border border-gray-800 ": variant === 'dark',
+
+
+          "bg-white from-transparent to-transparent border-[#0070C9] text-[#0070C9] hover:from-[#51A9EE] hover:to-[#147BCD] hover:text-white border": variant === 'outline-primary',
+          "bg-white border-[#4DA208] text-[#4DA208] hover:from-[#6fe70e] hover:to-[#54b108] hover:text-white from-transparent to-transparent": variant === 'outline-success',
+          "bg-white border-cyan-500 text-cyan-600  hover:from-cyan-300 hover:to-cyan-500 hover:text-white from-transparent to-transparent": variant === 'outline-info',
+          "bg-white border-[#db5d00] text-[#db5d00] hover:from-[#fdb92b] hover:to-[#db7d00] hover:text-white  from-transparent to-transparent": variant === 'outline-warning',
+          "bg-white border-red-700 text-red-700 hover:from-red-500 hover:to-red-700 hover:text-white from-transparent to-transparent": variant === 'outline-error',
+          "bg-white border-gray-900 text-gray-900 hover:from-gray-600 hover:to-gray-950 hover:text-white from-transparent to-transparent": variant === 'outline-dark',
           "hover:opacity-50  disabled:cursor-not-allowed": loading,
         }
       )}
@@ -62,3 +64,4 @@ export default function Button(props: any) {
     </button>
   );
 }
+
