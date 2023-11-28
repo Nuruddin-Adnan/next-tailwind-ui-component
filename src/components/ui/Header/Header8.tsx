@@ -63,7 +63,7 @@ export default function Header8() {
                                         {navigation.map((item) => (
                                             item.submenu ? <Menu key={item.name} as="div" className="relative group">
                                                 <div>
-                                                    <Menu.Button className="text-gray-100  group-hover:text-white group-hover:border-b-2 border-gray-100 flex items-center
+                                                    <Menu.Button className="text-gray-100  group-hover:text-white  border-gray-100 flex items-center
                                                     px-1 py-4 text-base">
                                                         {item.name}
                                                         <ChevronDownIcon className="h-5 w-5 flex-none " aria-hidden="true" />
@@ -101,7 +101,7 @@ export default function Header8() {
                                                     key={item.name}
                                                     href={item.href}
                                                     className={classNames(
-                                                        pathname === item.href ? 'text-white  border-b-2 border-white' : 'text-gray-100 hover:text-white hover:border-b-2 border-gray-300',
+                                                        pathname === item.href ? 'text-white  border-b-2 border-white' : 'text-gray-100 hover:text-white border-gray-300',
                                                         'px-1 py-4 text-base'
                                                     )}
                                                 >
